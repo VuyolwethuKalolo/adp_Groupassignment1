@@ -18,35 +18,35 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class TestingTest {
     
-    public TestingTest() {
-    }
-    
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
+    private Testing number1;
+    private Testing number2;
+    private Testing number3;
     @BeforeEach
     public void setUp() {
+       number1= new Testing();
+       number2= new Testing();
+       number3= new Testing();
     }
     
     @AfterEach
     public void tearDown() {
     }
-
-    /**
-     * Test of add method, of class Testing.
-     */
+ @Test 
+    public void testIdenty(){
+    assertSame(number1,number3);
+    }
+    @Test 
+    public void testEquality(){
+    
+    assertEquals(number1,number3);
+    }
     @Test
     public void testAdd() {
         System.out.println("add");
-        String s1 = "";
-        String s2 = "";
+        String s1 = "2";
+        String s2 = "2";
         Testing instance = new Testing();
-        int expResult = 0;
+        int expResult = 4;
         int result = instance.add(s1, s2);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
