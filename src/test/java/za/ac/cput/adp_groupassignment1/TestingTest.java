@@ -11,48 +11,90 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
 /**
  *
  * @author Master Vee
  */
 public class TestingTest {
-     private Testing number1;
-    private Testing number2;
-    private Testing number3;
-  
+    
+    public TestingTest() {
+    }
+
+    @org.junit.BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @org.junit.AfterClass
+    public static void tearDownClass() throws Exception {
+    }
+
+    @org.junit.Before
+    public void setUp() throws Exception {
+    }
+
+    @org.junit.After
+    public void tearDown() throws Exception {
+    }
+    
+    @BeforeAll
+    public static void setUpClass() {
+    }
+    
+    @AfterAll
+    public static void tearDownClass() {
+    }
     
     @BeforeEach
     public void setUp() {
-       number1= new Testing();
-       number2= new Testing();
-       number3= new Testing();
     }
     
     @AfterEach
     public void tearDown() {
     }
-    @Test 
-    public void testIdenty(){
-    assertSame(number1,number3);
-    }
-    @Test 
-    public void testEquality(){
-    
-    assertEquals(number1,number3);
-    }
-   
-    @Test
-    public void testAdd() {
+
+    /**
+     * Test of add method, of class Testing.
+     */
+    @Test//testing Equality
+    public void testAdd()
+    {
         System.out.println("add");
-        String s1 = "2";
-        String s2 = "2";
+        String s1 = "4";
+        String s2 = "4";
         Testing instance = new Testing();
-        int expResult = 4;
-        int result = instance.add(s1, s2);
+        int expResult = 0;
+        int result =Integer.parseInt( instance.equal(s1));
         assertEquals(expResult, result);
-        
-        fail("The test case is a prototype.");
+       
     }
+    
+     @Test(expected=NumberFormatException.class)//test failling
+    public void testAdd2() 
+    {
+        System.out.println("add");
+        String s1 = "fot";
+        String s2 = "4";
+        Testing instance = new Testing();
+       int result= instance.add(s1, s2);
+       
+    }
+    
+@Test//*(timeout=1000)*
+    public void testAdd3()
+    {
+        System.out.println("add");
+        String s1 = "4";
+        String s2 = "4";
+        int timeout=5;
+        Testing instance = new Testing();
+        final int factorialOf = 1 + (int) (30000 * Math.random());
+    }
+    
+    @Test
+public void temporarilyDisabledTest() throws Exception {
+    System.out.println("done");
+    assertEquals("Malm\u00f6", Utils.normalizeWord("Malmo\u0308"));
+    
+}
     
 }
